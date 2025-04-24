@@ -66,6 +66,7 @@ jobs:
       name: Download python artifacts
       with:
         name: python-artifacts
+        # this is needed step path . is correct
         path: .
 
     - name: Login to Docker Hub
@@ -74,7 +75,7 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-    - name: Build and push image
+    - name: Build and push image to docker hub
       uses: docker/build-push-action@v5
       with:
         context: ./src
